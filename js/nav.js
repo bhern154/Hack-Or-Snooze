@@ -46,8 +46,9 @@ $navSubmit.on("click", submitClick);
 
 /** Show favorited stories container when "favorites" nav link is clicked */
 
-function favoritesClick(evt) {
+async function favoritesClick(evt) {
   console.debug("favoritesClick", evt);
+  await updateUserStories();
   hidePageComponents();
   $favoritesStories.show();
   appendStoriesToPage(currentUser.favorites, $allFavoritedStoriesList);
@@ -56,8 +57,9 @@ $navfavorites.on("click", favoritesClick);
 
 /** Show user's stories container when "My Stories" nav link is clicked */
 
-function myStoriesClick(evt) {
+async function myStoriesClick(evt) {
   console.debug("favoritesClick", evt);
+  await updateUserStories();
   hidePageComponents();
   $myStories.show();
   appendStoriesToPage(currentUser.ownStories, $allMyStoriesList);
